@@ -10,6 +10,10 @@ class CityList extends Component {
     });
   }
 
+  componentWillMount() {
+
+  }
+
   render() {
     return (
       <div className="cities">
