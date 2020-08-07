@@ -3,8 +3,10 @@ import City from '../containers/city';
 
 class CityList extends Component {
   renderList() {
-    return this.props.map((city) => {
-      return <City key={city.name} city={city} />;
+    return this.props.cities.map((city) => {
+      return (
+        <City key={city.name} city={city} />
+      );
     });
   }
 
