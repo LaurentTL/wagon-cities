@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { selectCity } from '../actions';
+
 import City from '../containers/city';
 
 class CityList extends Component {
+  componentWillMount() {
+
+  }
+
   renderList() {
     return this.props.cities.map((city) => {
       return (
@@ -10,9 +19,6 @@ class CityList extends Component {
     });
   }
 
-  componentWillMount() {
-
-  }
 
   render() {
     return (
@@ -23,4 +29,11 @@ class CityList extends Component {
   }
 }
 
-export default CityList;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { selectCity: selectCity },
+    dispatch
+  );
+}
+
+export default connect(null, mapDispatchToProps)(CityList);
